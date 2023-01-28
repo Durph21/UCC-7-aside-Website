@@ -1,10 +1,33 @@
-<html>
-  <head>
-	<title> UCC Computer Science Student </title>
-  </head>
+{% extends "base.html" %}
 
-  <body>
-	This web space has yet to be updated.
-  </body>
+{% block main_content %}
+<div id="home">
+    <section id="title">
+        <h1>UCC 7 a side</h1>
+        <br\>
+        <h2>Welcome to UCCs official 7 a side page</h2>
+        <p id="click"><span>Click below for more:</span></p>
+        </section>
+        <section id="buttons">
+        <nav id="nav">
+            <a href="{{ url_for('register') }}">
+                <button>
+                    Register A Team
+                </button>
+            </a>
+            <a href="{{ url_for('league_table') }}">
+                <button>
+                    League Table
+                </button>
+            </a>
+            <a href="{{ url_for('all_teams') }}">
+                <button>
+                    Find a team
+                </button>
+            </a>
+        </nav>
+    </section>
+</div>
+       
 
-</html>
+{% endblock %}

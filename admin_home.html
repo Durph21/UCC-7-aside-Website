@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div id="admin_home">
+    <section id="title">
+        <h1>UCC 7 a side Admin</h1>
+        <br\>
+        <h2>THIS SITE IS FOR ADMIN ONLY</h2>
+        </section>
+        <section id="admin_buttons">
+        <nav id="admin_nav">
+            <a href="{{ url_for('list_of_teams') }}">
+                <button>
+                    Update Points/Games
+                </button>
+            </a>
+            <a href="{{ url_for('league_table') }}">
+                <button>
+                    League Table
+                </button>
+            </a>
+            <a href="{{ url_for('requests') }}">
+                <button>
+                    Requests
+                </button>
+            </a>
+            <a href="{{ url_for('all_players') }}">
+                <button>
+                    All Players
+                </button>
+            </a>
+        </nav>
+    </section>
+</div>
+       
+
+{% endblock %}

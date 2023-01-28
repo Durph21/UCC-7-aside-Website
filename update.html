@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<a href="{{ url_for('list_of_teams') }}">
+    <button>
+        Return
+    </button>
+</a>
+<h2>Updating: {{ update["team"] }}</h2>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.points.label }}
+        {{ form.points() }}
+        {% for error in form.points.errors %}
+            {{ error }}
+        {% endfor %}
+        <br/>
+        Or
+        <br/>
+        {{ form.games.label }}
+        {{ form.games() }}
+        {% for error in form.games.errors %}
+            {{ error }}
+        {% endfor %}
+        <br>
+        {{ form.submit() }}
+        <br/>
+    </form>
+
+
+
+{% endblock %}

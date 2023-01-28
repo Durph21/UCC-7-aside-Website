@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<a href="{{ url_for('home') }}">
+    <button>
+        Return
+    </button>
+</a>
+<h2>Registration Form</h2>
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.team.label }}
+    {{ form.team() }}
+    {% for error in form.team.errors %}
+        {{ error }}
+    {% endfor %}
+    <br>
+    {{ form.captain.label }}
+    {{ form.captain() }}
+    {% for error in form.captain.errors %}
+        {{ error }}
+    {% endfor %}
+    <br \>
+    {{ form.submit() }}
+</form>
+<p id="click">
+    <span>
+        {{ message }}
+    </span>
+</p>
+<!-- <table>
+    <caption>7 a side League Table</caption>
+{% for team in teams %}
+    <tr>
+        <td>{{ team["team"] }}</td> 
+        <td>{{ team["captain"] }}</td>
+        <td>{{ team["games"] }}</td>
+        <td>{{ team["points"] }}</td>
+    </tr>
+{% endfor %}
+
+</table> -->
+
+
+{% endblock %}

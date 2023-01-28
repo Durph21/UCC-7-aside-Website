@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<a href="{{ url_for('home') }}">
+    <button>
+        Return
+    </button>
+</a>
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.admin_id.label }}
+    {{ form.admin_id() }}
+    {% for error in form.admin_id.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+    {{ form.admin_password.label }}
+    {{ form.admin_password() }}
+    {% for error in form.admin_password.errors %}
+        {{ error }}
+    {% endfor %}
+    <br>
+    {{ form.submit() }}
+</form>
+{% endblock %}

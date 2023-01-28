@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<a href="{{ url_for('admin_home') }}">
+    <button>
+        Home
+    </button>
+</a>
+<table>
+    <caption>All Teams</caption>
+    <tr>
+        <th>Team Name</th>
+        <th>Team Captain</th>
+    </tr>
+{% for team in teams %}
+    <tr>
+        <td>{{ team["team"] }}</td> 
+        <td>{{ team["captain"] }}</td>
+        <td>
+            <a href="{{ url_for('update', team_id = team['team_id']) }}">
+                <button>
+                    Update points/games
+                </button>
+            </a>
+        </td>
+        
+    </tr>
+{% endfor %}
+
+</table>
+{% endblock %}

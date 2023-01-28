@@ -1,0 +1,30 @@
+<DOCTYPE html>
+    <html lang='en'>
+        <head>
+            <meta charset="utf-8" />
+            <link rel = "stylesheet" href="{{ url_for('static', filename='seven_a_side.css')}}">
+            <title>UCC 7 a Side</title>
+        </head>
+        <body>
+            <main>
+                {% block main_content %}
+
+                {% endblock %}
+                <section id="logs">
+                {% if g.user %}
+                    <p id="user"><span>Username: {{ g.user }}</span></p>
+                    <p id="logout"><a href="{{ url_for('logout') }}"><button>Logout</button></a></p>
+                
+                {% elif g.admin %}
+                    <p id="user"><span>Admin: {{ g.admin }}</span></p>
+                    <p id="logout"><a href="{{ url_for('logout') }}"><button>Logout</button></a></p>
+                
+                {% else %}
+                <p id="sign_up"><a href="{{ url_for('sign_up') }}"><button>Signup</button></a></p>
+                <p id="login"><a href="{{ url_for('login') }}"><button>Login</button></a></p>
+                <p id="admin"><a href="{{ url_for('admin') }}"><button>Admin</button></a></p>
+                </section>
+                {% endif %}
+            </main>
+        </body>
+    </html>

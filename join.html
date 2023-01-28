@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<a href="{{ url_for('all_teams') }}">
+    <button>
+        Return
+    </button>
+</a>
+<h2>Request to join {{ join["team"] }}</h2>
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.name.label }}
+    {{ form.name() }}
+    <br>
+    {{ form.position.label }}
+    {{ form.position() }}
+    <br/>
+    {{ form.submit() }}
+</form>
+<p id="click">
+    <span>
+        {{ message }}
+    </span>
+</p>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{% if g.user %}
+<a href="{{ url_for('home') }}">
+    <button>
+        Home
+    </button>
+</a>
+{% elif g.admin %}
+<a href="{{ url_for('admin_home') }}">
+    <button>
+        Home
+    </button>
+</a>
+{% endif %}
+<table>
+    <caption>Join Requests</caption>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Requested Team</th>
+    </tr>
+{% for request in request_table %}
+    <tr>
+        <td>{{ request["name"] }}</td> 
+        <td>{{ request["position"] }}</td>
+        <td>{{  request["team"] }}</td>  
+        <td>
+            <a href="{{ url_for('accept_request' , player_id = request['player_id']) }}">
+                <button>Accept</button>
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('decline_request' , player_id = request['player_id']) }}">
+                <button>Decline</button>
+            </a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
